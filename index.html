@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanullah | MMA Trainer</title>
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #ff1e1e;
+      text-decoration: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 2px solid #ff1e1e;
+    }
+
+    header h1 {
+      font-size: 26px;
+      background: linear-gradient(45deg, #ff1e1e, #b30000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    nav a {
+      margin-left: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #000, #420000);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      background: linear-gradient(45deg, #ff1e1e, #ff5959);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 22px;
+      color: #ccc;
+      margin: 15px 0 30px;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ff1e1e, #b30000);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #b30000, #ff1e1e);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 80px 50px;
+      /* max-width: 1100px; */
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 36px;
+      background: linear-gradient(45deg, #ff1e1e, #b30000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+    }
+
+    .about p {
+      text-align: left;
+      font-size: 18px;
+      color: #ccc;
+      max-width: 800px;
+      margin: auto;
+      align-items: center;
+    }
+
+    /* ---------- ACHIEVEMENTS ---------- */
+    .achievements {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .achievement {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 10px;
+      border-left: 4px solid #ff1e1e;
+      transition: 0.3s;
+    }
+
+    .achievement:hover {
+      transform: translateY(-5px);
+    }
+
+    .achievement h3 {
+      color: #ff4c4c;
+      margin-bottom: 10px;
+    }
+
+    /* ---------- FIGHTS SECTION ---------- */
+    .fights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .fight {
+      background: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .fight img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .fight-info {
+      padding: 20px;
+    }
+
+    .fight-info h3 {
+      color: #ff4c4c;
+    }
+
+    /* ---------- TROPHIES GALLERY ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------- CONTACT ---------- */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #222;
+      color: #fff;
+    }
+
+    button {
+      background: linear-gradient(45deg, #ff1e1e, #b30000);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #b30000, #ff1e1e);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111;
+      color: #aaa;
+      border-top: 2px solid #ff1e1e;
+      margin-top: 50px;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    /* #flex{
+       
+    } */
+   
+    #about {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#about p {
+    flex: 2 1 500px; /* text gets more space */
+    font-size: 18px;
+    color: #ccc;
+}
+
+.intro-pic {
+    flex: 1 1 300px; /* image takes reasonable space */
+    text-align: center;
+}
+
+.intro-pic img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.heading{
+    margin-top: 10px;
+}
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+    }
+    /* CSS */
+.responsive-img {
+    width: 80%;      /* default mobile-friendly */
+    max-width: 300px;  /* mobile pe max size */
+    height: auto;
+    border: 2px solid #000;
+    display: block;
+    margin: 0 auto;    /* center alignment */
+}
+
+/* Desktop ke liye */
+@media (min-width: 1024px) {
+    .responsive-img {
+     
+        max-width: 400px;  /* desktop pe badi image */
+    }
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AMANULLAH</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#fights">Fights</a>
+      <a href="#trophies">Trophies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>AMANULLAH</h1>
+    <p>Professional MMA Trainer | Fighter | Motivator</p>
+    <a href="#contact" class="btn">Book a Training Session</a>
+  </section>
+<h2 class="heading">Introduction</h2>
+  <section id="about" class="about">
+    
+    <p >
+  Hailing from Hijrat Colony, Karachi, Amanullah Memon is a highly accomplished Pakistani MMA fighter and coach. Despite starting work at a young age to support his family, he relentlessly pursued his passion for martial arts. His hard work paid off, making him the first fighter from Karachi to win an MMA title in Islamabad, securing a Gold Medal at the Thailand World Martial Arts Summit, and earning the Asian Pacific Award. Currently, he serves as the Head Coach at 'Fighter's Den,' training the next generation of fighters, and is actively seeking sponsors to represent Pakistan on the global stage.</p>
+    <div class="intro-pic">
+        <img src="pic2.png" alt="" srcset="">
+    </div>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="achievements">
+      <div class="achievement">
+        <h3>🥇 KCFL Karachi Champion (2019)</h3>
+        <p>  2019 title champion in KCFL Karachi cage fighting League.</p>
+      </div>
+      <div class="achievement">
+        <h3>🥇 International Fighter Recognition</h3>
+        <p>2015 bJJ Gold medal in Thailand.</p>
+      </div>
+      <div class="achievement">
+        <h3>💪 Kazakhstan</h3>
+        <p>Asian champion 2017 in BJJ gold medal champion in Kazakhstan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fights">
+    <h2>Past Fights</h2>
+    <div class="fights">
+      <div class="fight">
+        <img src="fight1.png" alt="Fight 1">
+        <div class="fight-info">
+          <h3>Amanullah vs ATIF KHAN</h3>
+          
+        </div>
+      </div>
+      <div class="fight">
+        <img src="pic11.png" alt="Fight 2">
+        <div class="fight-info">
+          <h3>SECURED BRONZE MEDAL</h3>
+          
+        </div>
+      </div>
+      <div class="fight">
+        <img src="pic10.png" alt="Fight 3">
+        <div class="fight-info">
+          <h3>AMANULLAH vs SEYED ALI</h3>
+        
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trophies">
+    <h2>Trophies & Medals</h2>
+    <div class="gallery">
+      
+      <img src="piic3.png" alt="Trophy 2">
+      <img src="pic4.png" alt="Trophy 3">
+      <img src="pic5.png" alt="Trophy 4">
+      <img src="pic7.png" alt="Trophy 5">
+      <img src="image8.png" alt="Trophy 6">
+      
+      
+     
+    </div>
+  </section>
+<section id="sponsorship-benefits" style="width: 100%; text-align: center;">
+        
+        <h2 style="color: #FF0000; text-transform: uppercase; font-size: 2em; margin-bottom: 40px;">
+            SPONSORSHIP BENEFITS
+        </h2>
+        
+        <div class="benefits-container" style="display: flex; justify-content: center; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
+            
+            <div class="sponsorship-card" style=" max-width: 300px;">
+                <h3 style="font-size: 1.8em; font-weight: bold; margin-bottom: 70px;">Entry Level 150,000</h3>
+                <ul style="list-style-type: none; ;">
+                    <li style="line-height: 1.5; margin-bottom: 8px;">Advertising & Presence</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">1.T Shirts & Shorts Printed logo</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">2.Boxing Gloves, Shin pads, Head Guard, MMA Gloves, Gum Sheild & Bandage</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">3.Sports bag, Water Bottles with printed logo & Joggers</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">4.Pakistan Track suit</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">5.Frozen Food</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">6.Visa Fee</li>
+                </ul>
+            </div>
+            
+            <div class="sponsorship-card" style="text-align: left; max-width: 300px;">
+                <h3 style="font-size: 1.8em; font-weight: bold; margin-bottom: 20px;">Supporting Level 1 250,000</h3>
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li style="line-height: 1.5; margin-bottom: 8px;">Advertising & Presence</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">1.T Shirts & Shorts Printed logo</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">2.Boxing Gloves, Shin pads, Head Guard, MMA Gloves, Gum Sheild & Bandage</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">3.Sports bag, Water Bottles with printed logo & Joggers</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">4.Wallet</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">5.Frozen Food</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">6.Visa Fee</li>
+                </ul>
+            </div>
+            
+            <div class="sponsorship-card" style="text-align: left; max-width: 300px;">
+                <h3 style="font-size: 1.8em; font-weight: bold; margin-bottom: 20px;">Supporting Level 2 500,000</h3>
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li style="line-height: 1.5; margin-bottom: 8px;">Advertising & Presence</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">1.T Shirts & Shorts Printed logo</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">2.Wallet</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">3.Round Trip Ticket</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">4.Visa Fee</li>
+                </ul>
+            </div>
+              <div class="sponsorship-card" style="text-align: left; max-width: 300px;">
+                <h3 style="font-size: 1.8em; font-weight: bold; margin-bottom: 20px;">Supporting Level 3 600,000</h3>
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li style="line-height: 1.5; margin-bottom: 8px;">Advertising & Presence</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">1.T Shirts & Shorts Printed logo</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">2.Wallet</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">3.Sports bag, Water Bottles with printed logo & Joggers</li>
+                          <li style="line-height: 1.5; margin-bottom: 8px;">4.Frozen Food</li>
+                     <li style="line-height: 1.5; margin-bottom: 8px;">5.Pakistan Track suit</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">6.Round Trip Ticket</li>
+                    <li style="line-height: 1.5; margin-bottom: 8px;">7.Visa Fee</li>
+                </ul>
+            </div>
+            <img src="pic13.png" alt="Trophy 2"class="responsive-img">
+              <div class="sponsorship-card" style="text-align: left; max-width: 300px;">
+    <h3 style="font-size: 1.8em; font-weight: bold; margin-bottom: 20px;">Official Level 10,00,000</h3>
+    <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li style="line-height: 1.5; margin-bottom: 8px;">Advertising & Presence</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">1. T Shirts & Shorts Printed logo</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">2. Boxing Gloves, Shin pads, Head Guard, MMA Gloves, Gum Sheild & Bandage</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">3. Sports bag, Water Bottles withprinted logo & Joggers</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">4. Visa Fee</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">5. Wallet</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">6. Round Trip Ticket</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">7. Fight Camp for one month</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">8. Hoteling for one month</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">9. Food Package for one month</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">10. Wallet for oudoor training activities</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">11. Pakistan track suit</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">12. Camp Training for 1 Month</li>
+        <li style="line-height: 1.5; margin-bottom: 8px;">13. Fight Entry Fee</li>
+    </ul>
+</div>
+<!-- HTML -->
+<img src="pic14.png" alt="Trophy 2" class="responsive-img">
+
+
+        </div>
+    </section>
+<section id="contact">
+  <h2>Contact Amanullah</h2>
+  <form id="web3form">
+    <input type="hidden" name="access_key" value="e03bf4e0-46a3-41a2-b69c-81817c84da01">
+
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="tel" name="phone" placeholder="Your Phone Number" pattern="[0-9]{10,15}" required />
+
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById('web3form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      alert('Message sent! Thank you, Amanullah.');
+      form.reset();
+    } catch (err) {
+      alert('Error sending message. Try again.');
+      console.error(err);
+    }
+  });
+</script>
+
+
+  <footer>
+    <p>© 2025 Amanullah MMA. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
